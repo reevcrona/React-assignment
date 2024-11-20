@@ -2,7 +2,8 @@ import { BrowserRouter,Routes,Route } from 'react-router-dom';
 import Home from "./Pages/Home.jsx";
 import Albums from "./Pages/Albums.jsx";
 import Counter from './Pages/Counter.jsx';
-import Navbar from "./Navbar.jsx";
+import Navbar from "./Components/Navbar.jsx";
+import Footer from './Components/Footer.jsx';
 import "./App.css";
 
 
@@ -24,6 +25,7 @@ function App() {
           <Route path="/counter" element = {<Counter/>} />
         </Routes>
       </BrowserRouter>
+      <Footer />
     </div>
   )
 }
