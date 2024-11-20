@@ -1,4 +1,5 @@
 import {Link} from "react-router-dom";
+import "./styles/Navbar.css"
 
 function Navbar(){
     return(
@@ -10,6 +11,9 @@ function Navbar(){
                     </li>
                     <li>
                     <Link to ="/albums">Albums</Link>
+                    </li>
+                    <li>
+                        <Link to="/counter">Counter</Link>
                     </li>
                     
                 </ul>
