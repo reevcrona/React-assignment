@@ -5,6 +5,8 @@ import TheBodyGuardImg from "../assets/theBodyGuard.jpg";
 import TheDarkSideOftheMoonImg from "../assets/TheDarkSideoftheMoon.webp";
 import BatOutOfHellImg from "../assets/Bat Out of Hell.jpg";
 
+import "../styles/AlbumCard.css";
+
 const albums = [
     {
       albumTitle:"Thriller",
@@ -38,13 +40,11 @@ const albums = [
     }
   ]
 
-  const renderAlbums = () => {
-    
-  }
+  
 
 function Albums(){
     return(
-        <div>
+        <div className="albums-main-container">
           { albums.map((album) => {
         return(
           <AlbumCard 
