@@ -50,7 +50,7 @@ function Albums(){
 
   const showLightBox = (imgUrl) => {
     setLightBoxData({isActive:true,LightImage:imgUrl});
-    console.log(lightBoxData)
+    
   }
 
   const hideLightBox = () => {
@@ -73,7 +73,7 @@ function Albums(){
       })
       }
        {lightBoxData.isActive && 
-       <LightBox lightImage = {lightBoxData.LightImage} closeLightBox = {hideLightBox}/>
+       <LightBox lightImage = {lightBoxData.LightImage} closeLightBox = {hideLightBox} />
        }
         </div>
     )

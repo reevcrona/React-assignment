@@ -14,5 +14,9 @@
     width: 100%;
     max-width: 500px;
     min-height: 2§50px;
-   
+    transform: scale(0.2);
+    transition: all 0.4s ease-in-out;
+}
+.active-lightbox{
+    transform: scale(1);
 }
