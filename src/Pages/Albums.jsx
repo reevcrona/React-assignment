@@ -9,6 +9,10 @@ import { useState } from "react";
 
 import "../styles/AlbumCard.css";
 
+
+
+
+
 const albums = [
     {
       albumTitle:"Thriller",
@@ -46,7 +50,10 @@ const albums = [
 
 function Albums(){
 
+
   const [lightBoxData,setLightBoxData] = useState({isActive:false,LightImage:""});
+
+  
 
   const showLightBox = (imgUrl) => {
     setLightBoxData({isActive:true,LightImage:imgUrl});

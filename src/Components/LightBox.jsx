@@ -7,9 +7,11 @@ function LightBox(props){
 
         useEffect(() => {
             setIsMounted(true);
+            console.log("yo")
 
             return () => {
                 setIsMounted(false);
+                console.log("bye")
             }
         },  [])
 

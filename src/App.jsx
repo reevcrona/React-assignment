@@ -6,15 +6,37 @@ import Navbar from "./Components/Navbar.jsx";
 import Footer from './Components/Footer.jsx';
 import "./App.css";
 
+import ThrillerImg from "./assets/thriller-album.jpg";
+import BackInBlackImg from "./assets/BackInBlack.svg"
+import TheBodyGuardImg from "./assets/theBodyGuard.jpg";
+import TheDarkSideOftheMoonImg from "./assets/TheDarkSideoftheMoon.webp";
+import BatOutOfHellImg from "./assets/Bat Out of Hell.jpg";
 
+import { useEffect } from 'react';
 
+const preloadImages = (images) => {
+  images.forEach((image) => {
+    const img = new Image();
 
+    img.src = image;
+  })
+}
 
-
+const myImages = [
+  ThrillerImg,
+  BackInBlackImg,
+  TheBodyGuardImg,
+  TheDarkSideOftheMoonImg,
+  BatOutOfHellImg
+]
 
 
 function App() {
   
+  useEffect(() => {
+    preloadImages(myImages)
+  },[])
+
   return (
     <div className="main-container">
       <BrowserRouter>
