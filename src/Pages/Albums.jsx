@@ -4,6 +4,7 @@ import BackInBlackImg from "../assets/BackInBlack.svg"
 import TheBodyGuardImg from "../assets/theBodyGuard.jpg";
 import TheDarkSideOftheMoonImg from "../assets/TheDarkSideoftheMoon.webp";
 import BatOutOfHellImg from "../assets/Bat Out of Hell.jpg";
+import { useState } from "react";
 
 import "../styles/AlbumCard.css";
 
@@ -43,6 +44,17 @@ const albums = [
   
 
 function Albums(){
+
+  const [lightBoxData,setLightBoxData] = useState({isActive:false,LigtImage:""});
+
+  const showLightBox = (imgUrl) => {
+    setLightBoxData({isActive:true,LigtImage:imgUrl});
+  }
+
+  const hideLightBox = () => {
+    setLightBoxData({isActive:false,LigtImage:""});
+  }
+
     return(
         <div className="albums-main-container">
           { albums.map((album) => {
