@@ -4,7 +4,7 @@ import "./styles/AlbumCard.css";
 function AlbumCard(props){
     return(
         <div className="album-card-container">
-            <img className="album-cover" src={props.cover}></img>
+            <img onClick={props.onClick} className="album-cover" src={props.cover}></img>
             <div className="album-info-container">
                 <h2>{props.title}</h2>
                 <h3>Artist: {props.artist}</h3>

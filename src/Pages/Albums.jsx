@@ -1,4 +1,5 @@
 import AlbumCard from "../AlbumCard.jsx";
+import LightBox from "../Components/LightBox.jsx";
 import ThrillerImg from "../assets/thriller-album.jpg";
 import BackInBlackImg from "../assets/BackInBlack.svg"
 import TheBodyGuardImg from "../assets/theBodyGuard.jpg";
@@ -45,14 +46,15 @@ const albums = [
 
 function Albums(){
 
-  const [lightBoxData,setLightBoxData] = useState({isActive:false,LigtImage:""});
+  const [lightBoxData,setLightBoxData] = useState({isActive:false,LightImage:""});
 
   const showLightBox = (imgUrl) => {
-    setLightBoxData({isActive:true,LigtImage:imgUrl});
+    setLightBoxData({isActive:true,LightImage:imgUrl});
+    console.log(lightBoxData)
   }
 
   const hideLightBox = () => {
-    setLightBoxData({isActive:false,LigtImage:""});
+    setLightBoxData({isActive:false,LightImage:""});
   }
 
     return(
@@ -65,9 +67,14 @@ function Albums(){
             cover = {album.albumCover}
             artist = {album.Artist}
             albumPrice = {album.price}
+            onClick = {() => showLightBox(album.albumCover)}
           />
         )
-      })}
+      })
+      }
+       {lightBoxData.isActive && 
+       <LightBox lightImage = {lightBoxData.LightImage} closeLightBox = {hideLightBox}/>
+       }
         </div>
     )
 }
