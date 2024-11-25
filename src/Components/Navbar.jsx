@@ -37,6 +37,14 @@ function Navbar(){
                         Counter
                         </Link>
                     </li>
+                    <li>
+                        <Link 
+                            to="/color-picker"
+                            className={isActive("/color-picker") ? "active":""}
+                        >
+                        Color Picker
+                        </Link>
+                    </li>
                     
                 </ul>
             </nav>
