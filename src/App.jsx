@@ -13,7 +13,7 @@ import TheBodyGuardImg from "./assets/theBodyGuard.jpg";
 import TheDarkSideOftheMoonImg from "./assets/TheDarkSideoftheMoon.webp";
 import BatOutOfHellImg from "./assets/Bat Out of Hell.jpg";
 
-import { useEffect } from 'react';
+import {useState, useEffect } from 'react';
 
 const preloadImages = (images) => {
   images.forEach((image) => {
@@ -32,24 +32,32 @@ const myImages = [
 ]
 
 
+
 function App() {
   
   useEffect(() => {
     preloadImages(myImages)
   },[])
 
+  const [color,setColor] = useState("");
+
+  const changeColor = (e) => {
+    setColor(e.target.value)
+  }
+
+
   return (
     <div className="main-container">
       <BrowserRouter>
-      <Navbar />
+      <Navbar color = {color} />
         <Routes>
           <Route path="/" element = {<Home />}/>
           <Route path="/albums" element = {<Albums />} />
           <Route path="/counter" element = {<Counter/>} />
-          <Route path ="/color-picker" element = {<ColorPicker />} />
+          <Route path ="/color-picker" element = {<ColorPicker handleChange = {changeColor} color = {color} />} />
         </Routes>
       </BrowserRouter>
-      <Footer />
+      <Footer color = {color} />
     </div>
   )
 }

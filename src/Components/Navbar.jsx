@@ -3,14 +3,14 @@ import "../styles/Navbar.css"
 
 
 
-function Navbar(){
+function Navbar(props){
 
     const location = useLocation();
 
     const isActive = (path) => location.pathname === path;
 
     return(
-        <header>
+        <header style = {{backgroundColor:props.color}}>
             <nav>
                 <ul>
                     <li>

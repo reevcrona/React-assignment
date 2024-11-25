@@ -2,9 +2,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faXTwitter,faFacebookF,faInstagram} from '@fortawesome/free-brands-svg-icons';
 
 import "../styles/Footer.css";
-function Footer(){
+function Footer(props){
     return (
-        <footer>
+        <footer style={{backgroundColor:props.color}}>
             <nav>
                 <ul>
                     <li>
