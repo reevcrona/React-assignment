@@ -3,9 +3,38 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+   
 }
 .box{
+    margin-top:150px;
     width: 250px;
     height: 250px;
+    position: relative;
     background-color: black;
+    border: 5px solid black;
+    padding: 20px;
+    border-radius: 10px;
+}
+.hex-text{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    color: white;
+    font-size: 1.5rem;
+    width: 100%;
+    max-width: 250px;
+}
+.select-color-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+}
+.color-input{
+    margin-left: 10px;
+    width: 50px;
+    height: 50px;
+    border-radius: 10px;
+    border: 2px solid gray;
 }

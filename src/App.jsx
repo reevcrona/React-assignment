@@ -39,7 +39,7 @@ function App() {
     preloadImages(myImages)
   },[])
 
-  const [color,setColor] = useState("");
+  const [color,setColor] = useState("#000000");
 
   const changeColor = (e) => {
     setColor(e.target.value)
