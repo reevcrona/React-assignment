@@ -45,6 +45,14 @@ function Navbar(props){
                         Color Picker
                         </Link>
                     </li>
+                    <li>
+                        <Link 
+                            to="/to-do-list"
+                            className={isActive("/to-do-list") ? "active":""}
+                        >
+                        To do list
+                        </Link>
+                    </li>
                     
                 </ul>
             </nav>

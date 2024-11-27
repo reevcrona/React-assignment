@@ -3,6 +3,7 @@ import Home from "./Pages/Home.jsx";
 import Albums from "./Pages/Albums.jsx";
 import Counter from './Pages/Counter.jsx';
 import ColorPicker from './Pages/ColorPicker.jsx';
+import ToDoList from './Pages/TodoList.jsx';
 import Navbar from "./Components/Navbar.jsx";
 import Footer from './Components/Footer.jsx';
 import "./App.css";
@@ -55,6 +56,7 @@ function App() {
           <Route path="/albums" element = {<Albums />} />
           <Route path="/counter" element = {<Counter/>} />
           <Route path ="/color-picker" element = {<ColorPicker handleChange = {changeColor} color = {color} />} />
+          <Route path="/to-do-list" element = {<ToDoList />}/>
         </Routes>
       </BrowserRouter>
       <Footer color = {color} />
