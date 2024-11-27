@@ -27,30 +27,22 @@ function ToDoList(){
         })
     }
 
-    const moveTaskUp = (index) => {
-       if(index > 0){
-        return setToDoList((prevState) => {
-            
-            const newTaskList = [...prevState];
-            
-            [newTaskList[index],newTaskList[index - 1]] = [newTaskList[index -1], newTaskList[index]]
-            
-            return newTaskList;
-        })
-       } 
+    const moveTask = (direction,index) => {
+        
+        if(direction ==="up" && index > 0 ){
+            setToDoList((prevState) => swapTaskOrder(prevState,index,index -1))
+        }else if (direction === "down" && index < toDoList.length -1){
+            return setToDoList((prevState) => swapTaskOrder(prevState,index,index + 1))
+        }
     }
-    const moveTaskDown = (index) => {
-        if(index < toDoList.length -1){
-         return setToDoList((prevState) => {
-             
-             const newTaskList = [...prevState];
-             
-             [newTaskList[index],newTaskList[index + 1]] = [newTaskList[index + 1], newTaskList[index]]
-             
-             return newTaskList;
-         })
-        } 
-     }
+    
+    const swapTaskOrder = (list,index1,index2) => {
+        const newTaskList = [...list];
+
+        [newTaskList[index1],newTaskList[index2]] = [newTaskList[index2],newTaskList[index1]];
+
+        return newTaskList
+    }
 
     const renderList = () => {
       return toDoList.map((task,index) => {
@@ -58,8 +50,8 @@ function ToDoList(){
         return <div key={index} className="task-container">
                 <li>{task}</li>
                 <button onClick={() => removeTask(index)}>remove</button>
-                <button onClick={() => moveTaskUp(index)}>move up</button>
-                <button onClick={() => moveTaskDown(index)}>move down</button>
+                <button onClick={() => moveTask("up",index)}>move up</button>
+                <button onClick={() => moveTask("down",index)}>move down</button>
                </div>
       })
     }
