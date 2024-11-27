@@ -25,7 +25,7 @@ function ToDoList(){
 
     const moveTask = (direction,index) => {
         
-        if(direction ==="up" && index > 0 ){
+        if(direction === "up" && index > 0 ){
             setToDoList((prevState) => swapTaskOrder(prevState,index,index -1))
         }else if (direction === "down" && index < toDoList.length -1){
              setToDoList((prevState) => swapTaskOrder(prevState,index,index + 1))
