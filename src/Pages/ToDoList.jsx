@@ -1,5 +1,5 @@
 import { useState } from "react";
-
+import "../styles/ToDoList.css"
 function ToDoList(){
 
     const [toDoList,setToDoList] = useState([]);
@@ -17,19 +17,28 @@ function ToDoList(){
         }
     }
 
+    const removeTask = (index) => {
+        setToDoList((prevState) => {
+          return  prevState.filter((_,i) => i !== index)
+        })
+    }
+
     const renderList = () => {
-      return toDoList.map((task,index) => <li key={index}>{task}</li>)
+      return toDoList.map((task,index) => {
+        
+        return <div key={index} className="task-container">
+                <li>{task}</li>
+                <button onClick={() => removeTask(index)}>remove</button>
+               </div>
+      })
     }
     
     
-    console.log(toDoList)
-    
-
     return(
         <div className="to-do-main-container">
-            <ul>
-                {renderList()}
-            </ul>
+            <ol>
+                {toDoList.length > 0 ? renderList() : <h1>No tasks</h1>}
+            </ol>
 
             <input onChange={handleInputValue} value={taskValue} placeholder="Task"></input>
             <button onClick={addTask}>Add task</button>
