@@ -20,11 +20,7 @@ function ToDoList(){
     }
 
     const removeTask = (index) => {
-        setToDoList((prevState) => {
-          return  prevState.filter((_,i) => {
-              return  i !== index;
-            })
-        })
+        setToDoList((prevState) => prevState.filter(( _ , i) => i !== index))
     }
 
     const moveTask = (direction,index) => {
@@ -32,7 +28,7 @@ function ToDoList(){
         if(direction ==="up" && index > 0 ){
             setToDoList((prevState) => swapTaskOrder(prevState,index,index -1))
         }else if (direction === "down" && index < toDoList.length -1){
-            return setToDoList((prevState) => swapTaskOrder(prevState,index,index + 1))
+             setToDoList((prevState) => swapTaskOrder(prevState,index,index + 1))
         }
     }
     
@@ -46,13 +42,13 @@ function ToDoList(){
 
     const renderList = () => {
       return toDoList.map((task,index) => {
-        
-        return <div key={index} className="task-container">
-                <li>{task}</li>
-                <button onClick={() => removeTask(index)}>remove</button>
-                <button onClick={() => moveTask("up",index)}>move up</button>
-                <button onClick={() => moveTask("down",index)}>move down</button>
-               </div>
+        return(
+         <div key={index} className="task-container">
+            <li>{task}</li>
+            <button onClick={() => removeTask(index)}>remove</button>
+            <button onClick={() => moveTask("up",index)}>move up</button>
+            <button onClick={() => moveTask("down",index)}>move down</button>
+        </div>)
       })
     }
     
