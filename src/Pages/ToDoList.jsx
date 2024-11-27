@@ -1,5 +1,7 @@
 import { useState } from "react";
 import "../styles/ToDoList.css"
+
+
 function ToDoList(){
 
     const [toDoList,setToDoList] = useState([]);
@@ -19,9 +21,36 @@ function ToDoList(){
 
     const removeTask = (index) => {
         setToDoList((prevState) => {
-          return  prevState.filter((_,i) => i !== index)
+          return  prevState.filter((_,i) => {
+              return  i !== index;
+            })
         })
     }
+
+    const moveTaskUp = (index) => {
+       if(index > 0){
+        return setToDoList((prevState) => {
+            
+            const newTaskList = [...prevState];
+            
+            [newTaskList[index],newTaskList[index - 1]] = [newTaskList[index -1], newTaskList[index]]
+            
+            return newTaskList;
+        })
+       } 
+    }
+    const moveTaskDown = (index) => {
+        if(index < toDoList.length -1){
+         return setToDoList((prevState) => {
+             
+             const newTaskList = [...prevState];
+             
+             [newTaskList[index],newTaskList[index + 1]] = [newTaskList[index + 1], newTaskList[index]]
+             
+             return newTaskList;
+         })
+        } 
+     }
 
     const renderList = () => {
       return toDoList.map((task,index) => {
@@ -29,6 +58,8 @@ function ToDoList(){
         return <div key={index} className="task-container">
                 <li>{task}</li>
                 <button onClick={() => removeTask(index)}>remove</button>
+                <button onClick={() => moveTaskUp(index)}>move up</button>
+                <button onClick={() => moveTaskDown(index)}>move down</button>
                </div>
       })
     }
