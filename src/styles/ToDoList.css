@@ -1,3 +1,41 @@
-.task-container{
+
+.to-do-main-container{
     display: flex;
+    align-items: center;
+    flex-direction: column;
+    border: 10px solid black;
+    width: 100%;
+    max-width: 700px;
+    min-height: 700px;
+    padding-top: 20px;
+}
+
+.to-do-main-container > ol {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 600px;
+    padding: 0;
+    gap: 10px;
+}
+
+.task-container{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: green;
+    
+}
+.button-container{
+    display: flex;
+    gap: 10px;
+    margin-right: 3em;
+    
+}
+.trash-icon{
+    color: red;
+}
+.list-icon{
+    cursor: pointer;
 }

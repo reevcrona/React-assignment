@@ -1,10 +1,12 @@
 import { useState } from "react";
 import "../styles/ToDoList.css"
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTrashCan,faArrowDownLong,faArrowUpLong } from '@fortawesome/free-solid-svg-icons';
 
 
 function ToDoList(){
 
-    const [toDoList,setToDoList] = useState([]);
+    const [toDoList,setToDoList] = useState(["Clean","Work","Trash"]);
     const [taskValue,setTaskValue] =  useState("");
 
 
@@ -44,10 +46,12 @@ function ToDoList(){
       return toDoList.map((task,index) => {
         return(
          <div key={index} className="task-container">
-            <li>{task}</li>
-            <button onClick={() => removeTask(index)}>remove</button>
-            <button onClick={() => moveTask("up",index)}>move up</button>
-            <button onClick={() => moveTask("down",index)}>move down</button>
+            <li><h2>{task}</h2></li>
+            <div className="button-container">
+            <FontAwesomeIcon className="arrow-up-icon list-icon"  onClick={() => moveTask("up",index)} icon = {faArrowUpLong}></FontAwesomeIcon>
+            <FontAwesomeIcon className="arrow-down-icon list-icon" onClick={() => moveTask("down",index)} icon = {faArrowDownLong}></FontAwesomeIcon>
+            <FontAwesomeIcon className="trash-icon list-icon" onClick={() => removeTask(index)} icon={faTrashCan}></FontAwesomeIcon>
+            </div>
         </div>)
       })
     }
@@ -55,12 +59,14 @@ function ToDoList(){
     
     return(
         <div className="to-do-main-container">
+            <input onChange={handleInputValue} value={taskValue} placeholder="Task"></input>
+            <button onClick={addTask}>Add task</button>
+            
             <ol>
                 {toDoList.length > 0 ? renderList() : <h1>No tasks</h1>}
             </ol>
 
-            <input onChange={handleInputValue} value={taskValue} placeholder="Task"></input>
-            <button onClick={addTask}>Add task</button>
+            
         </div>
     )
 }
