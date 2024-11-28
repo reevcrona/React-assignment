@@ -6,7 +6,7 @@ import { faTrashCan,faArrowDownLong,faArrowUpLong } from '@fortawesome/free-soli
 
 function ToDoList(){
 
-    const [toDoList,setToDoList] = useState(["Clean","Work","Trash"]);
+    const [toDoList,setToDoList] = useState([]);
     const [taskValue,setTaskValue] =  useState("");
 
 
@@ -16,7 +16,7 @@ function ToDoList(){
 
     const addTask = () => {
         if(taskValue){
-            setToDoList((prevState) => [...prevState,taskValue]);
+            setToDoList((prevState) => [...prevState,{task:taskValue,checked:false}]);
             setTaskValue("");
         }
     }
@@ -42,11 +42,33 @@ function ToDoList(){
         return newTaskList
     }
 
+    const handleCheckBoxChange = (clickedTask,index) => {
+        setToDoList((prevState) => {
+            return prevState.map((task,i) => {
+                if(i === index){
+                    return {
+                        task:clickedTask,
+                        checked:!task.checked
+                    }
+                }else{
+                    return task
+                }
+            })
+        })
+    }
+
     const renderList = () => {
       return toDoList.map((task,index) => {
         return(
          <div key={index} className="task-container">
-            <li><h2>{task}</h2></li>
+            <li>
+            <label className="custom-checkbox">
+                <input onChange={() => handleCheckBoxChange(task.task,index)} type="checkbox"></input>
+                <span>✔</span>
+                <h2 className= {task.checked ? "checked-text" : "task-text"}>{task.task}</h2>
+            </label>
+            
+            </li>
             <div className="button-container">
             <FontAwesomeIcon className="arrow-up-icon list-icon"  onClick={() => moveTask("up",index)} icon = {faArrowUpLong}></FontAwesomeIcon>
             <FontAwesomeIcon className="arrow-down-icon list-icon" onClick={() => moveTask("down",index)} icon = {faArrowDownLong}></FontAwesomeIcon>
@@ -56,15 +78,15 @@ function ToDoList(){
       })
     }
     
-    
+    console.log(toDoList)
     return(
         <div className="to-do-main-container">
             <input onChange={handleInputValue} value={taskValue} placeholder="Task"></input>
             <button onClick={addTask}>Add task</button>
             
-            <ol>
+            <ul>
                 {toDoList.length > 0 ? renderList() : <h1>No tasks</h1>}
-            </ol>
+            </ul>
 
             
         </div>
