@@ -47,12 +47,13 @@ function ToDoList(){
             return prevState.map((task,i) => {
                 if(i === index){
                     return {
-                        task:clickedTask,
+                        ...task,
                         checked:!task.checked
                     }
                 }else{
                     return task
                 }
+                
             })
         })
     }
@@ -63,7 +64,7 @@ function ToDoList(){
          <div key={index} className="task-container">
             <li>
             <label className="custom-checkbox">
-                <input onChange={() => handleCheckBoxChange(task.task,index)} type="checkbox"></input>
+                <input onChange={() => handleCheckBoxChange(task.task,index)} checked = {task.checked} type="checkbox"></input>
                 <span>✔</span>
                 <h2 className= {task.checked ? "checked-text" : "task-text"}>{task.task}</h2>
             </label>

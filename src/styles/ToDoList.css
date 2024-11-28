@@ -80,16 +80,13 @@
     text-align: center;
     border: 2px solid white;
     color: transparent;
-    font-size: 40px;
+    font-size: 0px;
     border-radius: 4px;
-    transition: color 0.4s ease-in-out;
 }
 
 
 .custom-checkbox input[type="checkbox"]:checked + span {
     border: 2px solid transparent;
     color: #fff;
-}
-.custom-checkbox input[type="checkbox"]:checked + .task-text{
-    color: gray;
+    font-size: 40px;
 }
