@@ -82,10 +82,10 @@ function ToDoList(){
     console.log(toDoList)
     return(
         <div className="to-do-main-container">
-                <h2>To do list</h2>
+                <h2 className="to-do-header">To do list</h2>
             <div className= "task-input-container">
                 <input className="task-input" onChange={handleInputValue} value={taskValue} placeholder="Task"></input>
-                <button className="add-task-button" onClick={addTask}>Add task</button>
+                <button className="add-task-button" onClick={addTask}>+</button>
             </div>
             
             
