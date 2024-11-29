@@ -5,11 +5,12 @@
     flex-direction: column;
     background-color: #4B264A;
     width: 100%;
-    max-width: 600px;
+    max-width: 630px;
     min-height: 650px;
     margin-bottom: 1em;
     border-radius: 40px;
     margin-top: 50px;
+    border: 20px solid #3D1A3A;
 }
 
 .to-do-main-container > ul {
@@ -18,7 +19,7 @@
     width: 100%;
     max-width: 500px;
     padding: 0;
-    gap: 10px;
+    gap: 20px;
 }
 
 .task-container{
