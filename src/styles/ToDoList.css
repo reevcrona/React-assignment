@@ -40,15 +40,20 @@
     display: flex;
     gap: 25px;
 }
-.trash-icon{
-    color: red;
+.trash-icon:hover{
+    color: #FF6A6A;
 }
-.arrow-up-icon,.arrow-down-icon{
-    color: white;
-}
+
 .list-icon{
     cursor: pointer;
-    font-size: 2rem;
+    font-size: 1.7rem;
+    opacity: 0.6;
+    transition: all 0.2s ease-in-out;
+    color: white;
+}
+.list-icon:hover{
+    opacity: 1;
+    transform: scale(1.2);
 }
 .task-text{
     font-size: 2rem;
@@ -57,8 +62,11 @@
 }
 .checked-text{
     font-size: 2rem;
-    color: blue;
+    color: #bfbfbf;
+    text-decoration: line-through;
+    text-decoration-color: white;
     font-family: "Nunito", sans-serif;
+    opacity: 0.3;
 }
 
 .custom-checkbox{
@@ -67,6 +75,7 @@
     align-items: center;
     gap:20px;
     cursor: pointer;
+    position: relative;
 }
 
 .custom-checkbox > input{
@@ -76,19 +85,20 @@
 .custom-checkbox span {
     width: 30px;
     height: 30px;
-    line-height: 30px;
+    line-height: 35px;
     text-align: center;
     border: 2px solid white;
     color: transparent;
     font-size: 0px;
-    border-radius: 4px;
+    border-radius: 50%;
 }
 
 
 .custom-checkbox input[type="checkbox"]:checked + span {
     border: 2px solid transparent;
     color: #fff;
-    font-size: 40px;
+    font-size: 20px;
+    background-color: #FF69B4;
 }
 
 
@@ -136,4 +146,9 @@
 }
 .add-task-button:hover{
     border: 2px solid white;
+}
+.no-task-text{
+    color: white;
+    font-size: 2rem;
+    font-family: "Nunito", sans-serif;
 }

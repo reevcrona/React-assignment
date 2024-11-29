@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "../styles/ToDoList.css"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTrashCan,faArrowDownLong,faArrowUpLong } from '@fortawesome/free-solid-svg-icons';
+import { faTrashCan,faArrowDownLong,faArrowUpLong,faCheck } from '@fortawesome/free-solid-svg-icons';
 
 
 function ToDoList(){
@@ -65,7 +65,7 @@ function ToDoList(){
             <li>
             <label className="custom-checkbox">
                 <input onChange={() => handleCheckBoxChange(task.task,index)} checked = {task.checked} type="checkbox"></input>
-                <span>✔</span>
+                <span><FontAwesomeIcon icon={faCheck}/></span>
                 <h2 className= {task.checked ? "checked-text" : "task-text"}>{task.task}</h2>
             </label>
             
@@ -90,7 +90,7 @@ function ToDoList(){
             
             
             <ul>
-                {toDoList.length > 0 ? renderList() : <h1>No tasks</h1>}
+                {toDoList.length > 0 ? renderList() : <h2 className="no-task-text">No tasks</h2>}
             </ul>
 
             
