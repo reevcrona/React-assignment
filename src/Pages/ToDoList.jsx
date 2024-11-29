@@ -82,8 +82,12 @@ function ToDoList(){
     console.log(toDoList)
     return(
         <div className="to-do-main-container">
-            <input onChange={handleInputValue} value={taskValue} placeholder="Task"></input>
-            <button onClick={addTask}>Add task</button>
+                <h2>To do list</h2>
+            <div className= "task-input-container">
+                <input className="task-input" onChange={handleInputValue} value={taskValue} placeholder="Task"></input>
+                <button className="add-task-button" onClick={addTask}>Add task</button>
+            </div>
+            
             
             <ul>
                 {toDoList.length > 0 ? renderList() : <h1>No tasks</h1>}

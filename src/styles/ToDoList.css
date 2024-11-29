@@ -3,12 +3,13 @@
     display: flex;
     align-items: center;
     flex-direction: column;
-    background-color: black;
+    background-color: #4B264A;
     width: 100%;
     max-width: 600px;
-    min-height: 600px;
-    padding-top: 20px;
+    min-height: 650px;
     margin-bottom: 1em;
+    border-radius: 40px;
+    margin-top: 50px;
 }
 
 .to-do-main-container > ul {
@@ -25,8 +26,9 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: green;
+    background-color: #693668;
     padding: 0 2em;
+    border-radius: 30px;
 }
 .task-container > li {
     display: flex;
@@ -37,8 +39,6 @@
 .button-container{
     display: flex;
     gap: 25px;
-    
-    
 }
 .trash-icon{
     color: red;
@@ -89,4 +89,20 @@
     border: 2px solid transparent;
     color: #fff;
     font-size: 40px;
+}
+
+
+.task-input-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    min-height: 70px;
+}
+.task-input{
+    width: 100%;
+    min-height: 30px;
+    max-width: 300px;
+    text-align: center;
+
 }
